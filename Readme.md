@@ -1,6 +1,6 @@
 # Backend
 
-Started Learning Backend in Hindi from `Hitesh sir`'s playlist on his `Chai aur Code` youtube channel.
+Started Learning Backend in Hindi from `Hitesh sir`'s playlist `Chai aur Javascript Backend` on his `Chai aur Code` youtube channel.
 
 ## Day 01 - Javascript Backend Roadmap
 

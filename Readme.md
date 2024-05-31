@@ -9,4 +9,10 @@ Started Learning Backend in Hindi from `Hitesh sir`'s playlist `Chai aur Javascr
 * How Backend Works with Database
 * JavaScript Based Backend
 
-## Day 02 - 
+## Day 02 - How to deploy backend code in production
+
+* Creating a Application
+    - Create a server which handles our requests and responses.
+    - Creating a server using the Express.js.
+    - Handle the 'get' requests.
+* Deploying Application to Production

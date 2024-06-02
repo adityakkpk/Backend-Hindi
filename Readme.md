@@ -16,3 +16,9 @@ Started Learning Backend in Hindi from `Hitesh sir`'s playlist `Chai aur Javascr
     - Creating a server using the Express.js.
     - Handle the 'get' requests.
 * Deploying Application to Production
+
+## Day 03 - How to connect frontend and backend in javascript
+
+* Backend
+* Frontend
+* Handling CORS error

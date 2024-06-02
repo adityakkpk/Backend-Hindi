@@ -4,7 +4,7 @@ Started Learning Backend in Hindi from `Hitesh sir`'s playlist `Chai aur Javascr
 
 ## Day 01 - Javascript Backend Roadmap
 
-* Backend Decvelopment Prerequisites
+* Backend Decvelopment `Prerequisites`
 * Frameworks and ORM/ODM
 * How Backend Works with Database
 * JavaScript Based Backend
@@ -12,13 +12,18 @@ Started Learning Backend in Hindi from `Hitesh sir`'s playlist `Chai aur Javascr
 ## Day 02 - How to deploy backend code in production
 
 * Creating a Application
-    - Create a server which handles our requests and responses.
-    - Creating a server using the Express.js.
-    - Handle the 'get' requests.
-* Deploying Application to Production
+    - Create a server which handles our `requests` and `responses`.
+    - Creating a server using the `Express.js`.
+    - Handle the `'get'` requests.
+* `Deploying` Application to `Production`
 
 ## Day 03 - How to connect frontend and backend in javascript
 
 * Backend
 * Frontend
-* Handling CORS error
+* Handling `CORS` error
+
+## Day 04 - Taking backend to next level
+
+* Best way to `master Backend`.
+* Glimps of `Mega Project`.

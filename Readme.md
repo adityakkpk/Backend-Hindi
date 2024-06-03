@@ -27,3 +27,9 @@ Started Learning Backend in Hindi from `Hitesh sir`'s playlist `Chai aur Javascr
 
 * Best way to `master Backend`.
 * Glimps of `Mega Project`.
+
+## Day 05 - Data modelling for backend with mongoose
+
+* Data Modeling
+* Tools
+* Creating Data Model

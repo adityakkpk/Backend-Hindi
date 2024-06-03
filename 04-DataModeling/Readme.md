@@ -18,6 +18,7 @@
     - Then `specify required data points`. (username, email,password, photo, DOB etc.)
 
 * **Code** 
+    - All the code is inside the practice folder.
     - Create a `Model` folder.
     - Inside Model folder, define your model and charecters.
     - For creating characters use `character.models.js` like naming convention.

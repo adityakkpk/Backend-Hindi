@@ -33,3 +33,9 @@ Started Learning Backend in Hindi from `Hitesh sir`'s playlist `Chai aur Javascr
 * Data Modeling
 * Tools
 * Creating Data Model
+* Todo Data Modeling Exapmles
+
+## Day 06 - Ecommerce and Hospital management Data modelling
+
+* Creating Data Models for Ecommerce 
+* Creating Data Models for Hospital Management

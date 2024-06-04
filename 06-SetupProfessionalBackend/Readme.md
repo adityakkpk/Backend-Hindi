@@ -31,3 +31,8 @@
     - `models` : for our data points
     - `routes` : code for all routes
     - `utils` : code for utilities like file upload, mailing etc
+
+- Install `Prettier` for the format of the code that what structure we will use for this project.
+    - Install it using `npm  i -D prettier`.
+    - Add some file for the formating of the code file
+    - add `.prittierrc` file for the code formatting and `.prittierignore` file to ignore by the prittier.

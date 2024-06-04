@@ -1,0 +1,21 @@
+{
+  "name": "mega-project",
+  "version": "1.0.0",
+  "description": "a project to learn backend from chai aur backend serise",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js"
+  },
+  "keywords": [
+    "javascript",
+    "node.js",
+    "express",
+    "backend"
+  ],
+  "author": "Aditya Kumar Kushwaha",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.3"
+  }
+}

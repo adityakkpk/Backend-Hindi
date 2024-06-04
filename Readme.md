@@ -39,3 +39,8 @@ Started Learning Backend in Hindi from `Hitesh sir`'s playlist `Chai aur Javascr
 
 * Creating Data Models for Ecommerce 
 * Creating Data Models for Hospital Management
+
+## Day 07 - How to setup a professional backend project
+
+- Create a `Data model diagram`. Follow the link for the diagram: `https://app.eraser.io/workspace/YtPqZ1VogxGy1jzIDkzj`
+- Starting our first mega project

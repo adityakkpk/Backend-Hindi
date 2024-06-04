@@ -19,4 +19,12 @@
 
     - Install `nodemon` packege as a development dependency by using `npm i nodemon` command.
 
-    - Add, commit and push the changes to the remote repository. 
+    - Add, commit and push the changes to the remote repository.
+
+    - Now create some folders inside the `src` folder: 
+        - `controllers` : All the functionalities put inside this 
+        - `db` : Code for connecting to the database
+        - `middlewares` : All the codes for some checking before `request` reching to the server.
+        - `models` : for our data points
+        - `routes` : code for all routes
+        - `utils` : code for utilities like file upload, mailing etc 

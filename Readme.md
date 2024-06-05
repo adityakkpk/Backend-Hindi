@@ -44,3 +44,9 @@ Started Learning Backend in Hindi from `Hitesh sir`'s playlist `Chai aur Javascr
 
 - Create a `Data model diagram`. Follow the link for the diagram: `https://app.eraser.io/workspace/YtPqZ1VogxGy1jzIDkzj`
 - Starting our first mega project
+
+## Day 08 - How to connect database in MERN with debugging
+
+- How to `connect` database
+- What `problems` occurs when connecting a MERN application to database
+- `Debugging` the problems

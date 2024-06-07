@@ -57,3 +57,10 @@ Started Learning Backend in Hindi from `Hitesh sir`'s playlist `Chai aur Javascr
 - `Video Model` with special `Plugin`
 - `JWT`
 - `Mongoose Models`
+
+## How to upload file in backend | Multer
+
+- `File Upload`
+- `Multer`
+- `Middleware` :- `Jane se pahle mujhse mil ke jana`
+- `Finally Project Configuration Done`.

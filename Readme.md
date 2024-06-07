@@ -50,3 +50,10 @@ Started Learning Backend in Hindi from `Hitesh sir`'s playlist `Chai aur Javascr
 - How to `connect` database
 - What `problems` occurs when connecting a MERN application to database
 - `Debugging` the problems
+
+## Day 09 - User and video model with hooks and JWT
+
+- `User Model`
+- `Video Model` with special `Plugin`
+- `JWT`
+- `Mongoose Models`

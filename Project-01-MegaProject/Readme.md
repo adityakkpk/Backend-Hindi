@@ -34,7 +34,7 @@
     - Add some file for the formating of the code file
     - add `.prittierrc` file for the code formatting and `.prittierignore` file to ignore by the prittier.
 
-### **Connecting to Database and Debugging**
+### **Step 2: Connecting to Database and Debugging**
 - `Database is always in another continent`
     - It means that when we use database, it will take time so always use `async-await`.
 
@@ -103,7 +103,7 @@
     ```
 - At last `run` the code and `Debug` the error if any
 
-### **Custom api response and error handling**
+### **Step 3: Custom api response and error handling**
 - Inside `src` folder, in `App.js` Create a Express Application.
     - Import the `express` package and create a `app` from it.
     - Install `cookie-parser` and `cors` package.
@@ -126,7 +126,7 @@
     - **Middleware**: Middewares are the `checks` that are performed on the request `before` the request reached to the `server`.
     - Now create some utilities like `ApiError`, `ApiResponse` and `asyncHandler` in the utils folder.
 
-### **User and video model with hooks and JWT**
+### **Step 4: User and video model with hooks and JWT**
 - Create some `models` like `user model`, `video model` etc inside the `model folder`.
 - Install `mongoose-aggregate-paginate-v2` package for writting complex querries in our project.
 - Install `JWT` using `npm i jsonwebtoken` command for creating tokens.
@@ -175,7 +175,7 @@
     }
     ```
     
-### **How to upload file in backend | Multer**
+### **Step 5: How to upload file in backend | Multer**
 - File uploading is done by the `Backend Engineers`.
 
 - File uploads are not done on our servers. It is done on the t`hired party services` or `AWS`.

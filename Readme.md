@@ -58,7 +58,7 @@ Started Learning Backend in Hindi from `Hitesh sir`'s playlist `Chai aur Javascr
 - `JWT`
 - `Mongoose Models`
 
-## How to upload file in backend | Multer
+## Day 10 - How to upload file in backend | Multer
 
 - `File Upload`
 - `Multer`

@@ -64,3 +64,13 @@ Started Learning Backend in Hindi from `Hitesh sir`'s playlist `Chai aur Javascr
 - `Multer`
 - `Middleware` :- `Jane se pahle mujhse mil ke jana`
 - `Finally Project Configuration Done`.
+
+## Day 11 - HTTP Crash Course
+
+- What are `HTTP headers`?
+- `HTTP Methods`
+- `Status codes`
+
+## Day 12 - Complete guide for router and controller with debugging
+
+-

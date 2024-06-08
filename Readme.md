@@ -73,4 +73,6 @@ Started Learning Backend in Hindi from `Hitesh sir`'s playlist `Chai aur Javascr
 
 ## Day 12 - Complete guide for router and controller with debugging
 
--
+- Creating `Router`
+- Writting `controllers`
+- `Debugging` the issues comming at run time

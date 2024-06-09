@@ -109,18 +109,18 @@
     - Install `cookie-parser` and `cors` package.
     - Configure them 
         ```javascript
-        // For CORS
+        - For CORS
         app.use(cors({
             origin: process.env.CORS_ORIGIN,
             credentials: true,
         }));
-        // For json data
+        - For json data
         app.use(express.json({limit: "16kb"}));
-        // For URL data
+        - For URL data
         app.use(express.urlencoded({extended: true, limit: "16kb"}));
-        // For images or files
+        - For images or files
         app.use(express.static("public"));
-        // For Cookies
+        - For Cookies
         app.use(cookieParser());
         ```
     - **Middleware**: Middewares are the `checks` that are performed on the request `before` the request reached to the `server`.
@@ -134,7 +134,7 @@
 - Install `bcrypt` package for hasing the passwords.
 - Write code for hashing the password and comparing them:
     ```javascript
-    // pre() :- it is a middleware which execute before the data is saved into the database
+    - pre() :- it is a middleware which execute before the data is saved into the database
     userSchema.pre("save", async function (next) {
         if(!this.isModified("password")) return next();
 
@@ -190,7 +190,7 @@
     import {v2 as cloudinary} from 'cloudinary';
     import fs from "fs";
 
-    // Configuration
+    - Configuration
     cloudinary.config({ 
         cloud_name: process.env.CLOUDINARY_NAME, 
         api_key: CLOUDINARY_API_KEY, 
@@ -200,16 +200,16 @@
     const uploadOnCloudinary = async (filePath) => {
         try {
             if(!filePath) return null;
-            // Upload an image
+            - Upload an image
             const uploadResult = await cloudinary.uploader.upload(filePath, {
                 resource_type: "auto",
             });
-            // File is successfully uploaded
+            - File is successfully uploaded
             console.log("File upload Success: ", uploadResult.url);
             return uploadResult;
 
         } catch (error) {
-            fs.unlink(filePath); // Delete the locally saved temporary file as the upload operation failed
+            fs.unlink(filePath); - Delete the locally saved temporary file as the upload operation failed
             return null;
         }
     }
@@ -267,3 +267,116 @@
 - Importing `Router` in `app.js` and `declaring` them.
 - At last `Debugging` the code.
 
+### **Step 6 : Logic Building | Register Controller**
+- *Creating `Register Controller` for our application* :
+    - get user details from frontend
+    - validation - not empty
+    - check if user already exists: username, email
+    - check for images, check for avatar
+    - upload them to Cloudinary server, avatar
+    - create user object - create entry in db
+    - remove password and referesh token from response
+    - check for user creation 
+    - return response
+
+- *Writing Code for Register Controller:*
+    - In `user.controller.js` destructure the data coming from frontend.
+    - For file handling, in `user.routes.js` file import `upload` from `multer.middleware.js`. And the write code for uploading file.
+    ```javascript
+    router.route("/register").post(
+        upload.fields([
+            {
+                name: "avatar",
+                maxCount: 1,
+            },
+            {
+                name: "coverImage",
+                maxCount: 1,
+            }
+        ]),
+        registerUser
+    );
+    ```
+    - *code*:
+    ```javascript
+        import {asyncHandler} from '../utils/asyncHandler.js';
+        import {ApiError} from "../utils/ApiError.js"
+        import {User} from "../models/user.model.js"
+        import {uploadOnCloudinary} from "../utils/cloudinary.js"
+        import { ApiResponse } from '../utils/ApiResponse.js';
+
+        const registerUser = asyncHandler( async (req, res) => {
+            // get user details from frontend
+            // validation - not empty
+            // check if user already exists: username, email
+            // check for images, check for avatar
+            // upload them to Cloudinary server, avatar
+            // create user object - create entry in db
+            // remove password and referesh token from response
+            // check for user creation 
+            // return response
+
+            // get user details from frontend
+            const {fullName, email, username, password} = req.body
+            console.log("Email: " + email);
+
+            // Validation
+            if (
+                [fullName, email, username, password].some((field) => field?.trim() === "")
+            ) {
+                throw new ApiError(400, "All fields are required")
+            }
+
+            // User exists or not 
+            const existedUser = User.findOne({ 
+                $or: [{username}, {email}]
+            })
+            if (existedUser) {
+                throw new ApiError(409, "User already exists")
+            }
+
+            // Check for images, chack for avatar
+            const avatarLocalpath = req.files?.avatar[0]?.path;
+            const coverimageLocalPath = req.files?.coverimage[0]?.path;
+            console.log(req.files);
+            if(!avatarLocalpath) {
+                throw new ApiError(400, "Avatar file is Required.");
+            }
+
+            // Upload image to Cloudinary server
+            const avatar = await uploadOnCloudinary(avatarLocalpath);
+            const coverImage = await uploadOnCloudinary(coverimageLocalPath);
+            if(!avatar) {
+                throw new ApiError(400, "Avatar file is Required");
+            }
+
+            // Create entry in DB
+            const user = await User.create({
+                fullName,
+                email,
+                username: username.toLowerCase(),
+                password,
+                avatar: avatar.url,
+                coverImage: coverImage?.url || "",
+            })
+
+            // Check user is created or not
+            const createdUser = user.findById(user.id).select(
+                "-password -refreshToken"
+            );
+            if(!createdUser) {
+                throw new ApiError(500, "Something went wrong while registering the user");
+            }
+
+            //return responce
+            return res.status(201).json(
+                new ApiResponse(200, createdUser, "User Register Successfully.")
+            )
+        } )
+
+        export {
+            registerUser,
+        }
+    ```
+- Using `Postman` for testing purposes
+    - Testing `POST` requests for `register user` with dummy data.

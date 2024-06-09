@@ -76,3 +76,7 @@ Started Learning Backend in Hindi from `Hitesh sir`'s playlist `Chai aur Javascr
 - Creating `Router`
 - Writting `controllers`
 - `Debugging` the issues comming at run time
+
+## Day 13 - Logic building | Register controller
+
+* Creating Controller for registration of user.

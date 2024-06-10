@@ -36,13 +36,25 @@ const registerUser = asyncHandler(async (req, res) => {
     }
 
     // Check for images, chack for avatar
-    const avatarLocalpath = req.files?.avatar[0]?.path;
-    // const coverimageLocalPath = req.files?.coverImage[0]?.path;
+    // const avatarLocalpath = req.files?.avatar[0]?.path;
+    let avatarLocalpath;
+    if (
+        req.files &&
+        Array.isArray(req.files.avatar) &&
+        req.files.avatar.length > 0
+    ) {
+        avatarLocalpath = req.files.avatar[0].path;
+    }
     if (!avatarLocalpath) {
         throw new ApiError(400, "Avatar file is Required.");
     }
+    // const coverimageLocalPath = req.files?.coverImage[0]?.path;
     let coverimageLocalPath;
-    if(req.files && Array.isArray(req.files.coverImage) && req.files.coverImage.length > 0) {
+    if (
+        req.files &&
+        Array.isArray(req.files.coverImage) &&
+        req.files.coverImage.length > 0
+    ) {
         coverimageLocalPath = req.files.coverImage[0].path;
     }
 

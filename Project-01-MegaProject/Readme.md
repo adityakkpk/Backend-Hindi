@@ -380,3 +380,10 @@
     ```
 - Using `Postman` for testing purposes
     - Testing `POST` requests for `register user` with dummy data.
+
+### **Step 7: How to use postman for Backend**
+- When you work with real world project or as a Backend Engineer, you need to share some `collection` to the Frontend Engineer. To create this collection we will use `Postman`.
+- Open postman and create a `post` request for the `register user` endpoint for testing.
+- Send form-data to the `register user` endpoint by using postman.
+- Fixed all the Errors.
+- Now in postman Create a new `Collection` and create a new `variable` for this collection and setup the `register endpoint` for `post request`.

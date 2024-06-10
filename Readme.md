@@ -80,3 +80,8 @@ Started Learning Backend in Hindi from `Hitesh sir`'s playlist `Chai aur Javascr
 ## Day 13 - Logic building | Register controller
 
 * Creating Controller for registration of user.
+
+## Day 14 - How to use postman for backend
+
+* Create a Register User endpoint in Postman for post reques.
+* Debugg the errors.

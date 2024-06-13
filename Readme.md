@@ -103,3 +103,4 @@ Started Learning Backend in Hindi from `Hitesh sir`'s playlist `Chai aur Javascr
 ## Day 17 - Writing update controllers for user
 
 * Creating a new Subscription Model
+* Creating Controllers for updation in User data

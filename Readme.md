@@ -104,3 +104,7 @@ Started Learning Backend in Hindi from `Hitesh sir`'s playlist `Chai aur Javascr
 
 * Creating a new Subscription Model
 * Creating Controllers for updation in User data
+
+## Day 18 - Subscription Schema
+
+* Understanding Subscription schema

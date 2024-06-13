@@ -117,3 +117,4 @@ Started Learning Backend in Hindi from `Hitesh sir`'s playlist `Chai aur Javascr
 ## Day 20 - How to write sub pipelines and routes
 
 * Creating a pipeline for watch-history.
+* Add some new routes for user controller.

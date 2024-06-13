@@ -118,3 +118,9 @@ Started Learning Backend in Hindi from `Hitesh sir`'s playlist `Chai aur Javascr
 
 * Creating a pipeline for watch-history.
 * Add some new routes for user controller.
+
+## Day 21 - Summary of the Backend Serise
+
+* Overall Summary
+* Mega Project Summary
+* What Next?

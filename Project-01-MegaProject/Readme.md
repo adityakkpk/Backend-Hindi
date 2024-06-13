@@ -544,189 +544,248 @@
 ### **Step 10 - Writting update controllers for user**
 
 * *Creating a new Subscription Model*
-- Create a new file `subscription.mode.js` inside the `models` directory and write the code for the subscription model: 
-```javascript
-import mongoose, {Schema } from 'mongoose';
+    - Create a new file `subscription.mode.js` inside the `models` directory and write the code for the subscription model: 
+    ```javascript
+    import mongoose, {Schema } from 'mongoose';
 
-const subscriptionSchema = new Schema({
-    subscriber: {
-        type: Schema.Types.ObjectId, // one who is subscribing
-        ref: 'User',
-    }, 
-    channel: {
-        type: Schema.Types.ObjectId, // one to whom 'subscriber' is subscribing
-        ref: 'User',
-    }
-}, {timeseries: true});
+    const subscriptionSchema = new Schema({
+        subscriber: {
+            type: Schema.Types.ObjectId, // one who is subscribing
+            ref: 'User',
+        }, 
+        channel: {
+            type: Schema.Types.ObjectId, // one to whom 'subscriber' is subscribing
+            ref: 'User',
+        }
+    }, {timeseries: true});
 
-export const Subscription = mongoose.model('Subscription', subscriptionSchema);
-```
+    export const Subscription = mongoose.model('Subscription', subscriptionSchema);
+    ```
 
 * *Creating Controllers for updation in User data*
-```javascript
-const changeCurrentPassword = asyncHandler(async (req, res) => {
-    const { oldPassword, newPassword } = req.body;
+    ```javascript
+    const changeCurrentPassword = asyncHandler(async (req, res) => {
+        const { oldPassword, newPassword } = req.body;
 
-    const user = await User.finfById(req.user?._id);
-    const isPasswordCorrect = await user.isPasswordCorrect(oldPassword);
+        const user = await User.finfById(req.user?._id);
+        const isPasswordCorrect = await user.isPasswordCorrect(oldPassword);
 
-    if (!isPasswordCorrect) throw new ApiError(400, "Invalid password");
+        if (!isPasswordCorrect) throw new ApiError(400, "Invalid password");
 
-    user.password = newPassword;
-    await user.save({ validateBeforeSave: false });
+        user.password = newPassword;
+        await user.save({ validateBeforeSave: false });
 
-    return res
+        return res
+            .status(200)
+            .json(new ApiResponse(200, {}, "Password Changed Successfully"));
+    });
+
+    const getCurrentUser = asyncHandler(async (req, res) => {
+        return res
+            .status(200)
+            .json(200, req.user, "Current User Fetched Successfully");
+    });
+
+    const updateAccountDetails = asyncHandler(async (req, res) => {
+        const {fullName, email} = req.body;
+
+        if(!fullName || !email) throw new ApiError(400, "All fields are required.") 
+
+        const user = await User.findByIdAndUpdate(
+            req.user?._id,
+            {
+                $set: {
+                    fullName,
+                    email
+                }
+            },
+            {new: true}
+        ).select("-password");
+
+        return res
         .status(200)
-        .json(new ApiResponse(200, {}, "Password Changed Successfully"));
-});
+        .json(new ApiResponse(200, user, "Account Details Updated Successfully"));
+    });
 
-const getCurrentUser = asyncHandler(async (req, res) => {
-    return res
+    const updateUserAvatar = asyncHandler(async (req, res) => {
+        const avatarLocalPath = req.file?.path;
+
+        if(!avatarLocalPath) throw new ApiError(400, "Avatar file is missing");
+
+        const avatar = await uploadOnCloudinary(avatarLocalPath)
+        if(!avatar.url) throw new ApiError(400, "Error while uploading avatar");
+
+        const user = await User.findByIdAndUpdate(
+            req.user?._id,
+            {
+                $set: {
+                    avatar: avatar.url
+                }
+            },
+            {new: true}
+        ).select("-password");
+
+        return res
         .status(200)
-        .json(200, req.user, "Current User Fetched Successfully");
-});
+        .json(new ApiResponse(200, user, "Avatar Updated Successfully"));
+    });
 
-const updateAccountDetails = asyncHandler(async (req, res) => {
-    const {fullName, email} = req.body;
+    const updateUserCoverImage = asyncHandler(async (req, res) => {
+        const coverLocalPath = req.file?.path;
 
-    if(!fullName || !email) throw new ApiError(400, "All fields are required.") 
+        if(!coverLocalPath) throw new ApiError(400, "Cover file is missing");
 
-    const user = await User.findByIdAndUpdate(
-        req.user?._id,
-        {
-            $set: {
-                fullName,
-                email
-            }
-        },
-        {new: true}
-    ).select("-password");
+        const coverImage = await uploadOnCloudinary(coverLocalPath)
+        if(!coverImage.url) throw new ApiError(400, "Error while uploading coverImage");
 
-    return res
-       .status(200)
-       .json(new ApiResponse(200, user, "Account Details Updated Successfully"));
-});
+        const user = await User.findByIdAndUpdate(
+            req.user?._id,
+            {
+                $set: {
+                    coverImage: coverImage.url
+                }
+            },
+            {new: true}
+        ).select("-password");
 
-const updateUserAvatar = asyncHandler(async (req, res) => {
-    const avatarLocalPath = req.file?.path;
+        return res
+        .status(200)
+        .json(new ApiResponse(200, user, "Cover Image Updated Successfully"));
+    });
 
-    if(!avatarLocalPath) throw new ApiError(400, "Avatar file is missing");
-
-    const avatar = await uploadOnCloudinary(avatarLocalPath)
-    if(!avatar.url) throw new ApiError(400, "Error while uploading avatar");
-
-    const user = await User.findByIdAndUpdate(
-        req.user?._id,
-        {
-            $set: {
-                avatar: avatar.url
-            }
-        },
-        {new: true}
-    ).select("-password");
-
-    return res
-       .status(200)
-       .json(new ApiResponse(200, user, "Avatar Updated Successfully"));
-});
-
-const updateUserCoverImage = asyncHandler(async (req, res) => {
-    const coverLocalPath = req.file?.path;
-
-    if(!coverLocalPath) throw new ApiError(400, "Cover file is missing");
-
-    const coverImage = await uploadOnCloudinary(coverLocalPath)
-    if(!coverImage.url) throw new ApiError(400, "Error while uploading coverImage");
-
-    const user = await User.findByIdAndUpdate(
-        req.user?._id,
-        {
-            $set: {
-                coverImage: coverImage.url
-            }
-        },
-        {new: true}
-    ).select("-password");
-
-    return res
-       .status(200)
-       .json(new ApiResponse(200, user, "Cover Image Updated Successfully"));
-});
-
-```
+    ```
 
 ### **Step 11 - MongoDB Aggrgations Pipeline**
 - *Creating a pipeline for user subscription.*
-- Inside the user.controllers.js file, add the below function for the pipeline:
-```javascript
-const getUserChannelProfile = asyncHandler(async (req, res) => {
-    const {username} = req.params;
-    if(!username.trim()) throw new ApiError(400, "Username missing");
+    - Inside the user.controllers.js file, add the below function for the pipeline:
+    ```javascript
+    const getUserChannelProfile = asyncHandler(async (req, res) => {
+        const {username} = req.params;
+        if(!username.trim()) throw new ApiError(400, "Username missing");
 
-    const channel = await User.aggregate([
-        // Find the User by username
-        {
-            $match: {
-                username: username?.toLowerCase()
-            }
-        },
-        // Get the subscribers of the user's channel
-        {
-            $lookup: {
-                from: "subscriptions",
-                localField: "_id",
-                foreignField: "channel",
-                as: "subscribers"
-            }
-        },
-        // Get the channels which user has subscribed to
-        {
-            $lookup: {
-                from: "subscriptions",
-                localField: "_id",
-                foreignField: "subscriber",
-                as: "subscribedTo"
-            }
-        },
-        // Now counting the number of subscribers and channels user has subscribed and checked for subscriptions
-        {
-            $addFields: {
-                subscribersCount: {
-                    $size: "$subscribers"
-                },
-                channelSubscribedToCount: {
-                    $size: "$subscribedTo"
-                },
-                isSubscribed: {
-                    $cond: {
-                        if: {$in: [req.user?._id, "subscribers.subscriber"]},
-                        then: true,
-                        else: false
+        const channel = await User.aggregate([
+            // Find the User by username
+            {
+                $match: {
+                    username: username?.toLowerCase()
+                }
+            },
+            // Get the subscribers of the user's channel
+            {
+                $lookup: {
+                    from: "subscriptions",
+                    localField: "_id",
+                    foreignField: "channel",
+                    as: "subscribers"
+                }
+            },
+            // Get the channels which user has subscribed to
+            {
+                $lookup: {
+                    from: "subscriptions",
+                    localField: "_id",
+                    foreignField: "subscriber",
+                    as: "subscribedTo"
+                }
+            },
+            // Now counting the number of subscribers and channels user has subscribed and checked for subscriptions
+            {
+                $addFields: {
+                    subscribersCount: {
+                        $size: "$subscribers"
+                    },
+                    channelSubscribedToCount: {
+                        $size: "$subscribedTo"
+                    },
+                    isSubscribed: {
+                        $cond: {
+                            if: {$in: [req.user?._id, "subscribers.subscriber"]},
+                            then: true,
+                            else: false
+                        }
                     }
                 }
+            },
+            // Returning the selected items
+            {
+                $project: {
+                    fullName: 1,
+                    username: 1,
+                    subscribersCount: 1,
+                    channelSubscribedToCount: 1,
+                    isSubscribed: 1,
+                    avatar: 1,
+                    email: 1,
+                    coverImage: 1,
+                }
             }
-        },
-        // Returning the selected items
-        {
-            $project: {
-                fullName: 1,
-                username: 1,
-                subscribersCount: 1,
-                channelSubscribedToCount: 1,
-                isSubscribed: 1,
-                avatar: 1,
-                email: 1,
-                coverImage: 1,
-            }
-        }
-    ])
+        ])
 
-    if(!channel?.length) throw new ApiError(404, "Channel does not exists")
+        if(!channel?.length) throw new ApiError(404, "Channel does not exists")
 
-    return res
-        .status(200)
-        .json(new ApiResponse(200, channel[0], "User Channel Profile Fetched Successfully"));
-});
-```
+        return res
+            .status(200)
+            .json(new ApiResponse(200, channel[0], "User Channel Profile Fetched Successfully"));
+    });
+    ```
 
+### **Step 12 - Sub pipelines and routes**
+* *Creating a pipeline for watch-history.*
+    - In this pipelining process firstly, we will `select user`.
+    - Then we will fetch `watchHistory` 
+    - Then we will find the `owner` of the watchHistory.
+    - Then we converted the returned array into a single element.
+    - Inside the `user.controller.js` file: 
+    ```javascript
+    const getWatchHistory = asyncHandler(async (req, res) => {
+        const user = await User.aggregate([
+            {
+                $match: {
+                    _id: mongoose.Types.ObjectId(req.user?._id)
+                }
+            }, 
+            {
+                $lookup: {
+                    from: "videos",
+                    localField: "watchHistory",
+                    foreignField: "_id",
+                    as: "watchHistory",
+                    // Sub-pipeline
+                    pipeline: [
+                        {
+                            $lookup: {
+                                from: "users",
+                                localField: "owner",
+                                foreignField: "_id",
+                                as: "owner",
+                                pipeline: [
+                                    {
+                                        $project: {
+                                            fullName: 1,
+                                            username: 1,
+                                            avatar: 1,
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            $addFields: {
+                                owner: {
+                                    // $arrayElemAt: ["$owner", 0]
+                                    $first: "$owner"
+                                }
+                            }
+                        }
+                    ]
+                }
+            },
+        ]);
 
+        return res
+            .status(200)
+            .json(new ApiResponse(200, user[0].watchHistory, "Watch History fetched successfully"));
+    });
+    ```
+
+* ****

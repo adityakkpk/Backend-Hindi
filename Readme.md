@@ -108,3 +108,8 @@ Started Learning Backend in Hindi from `Hitesh sir`'s playlist `Chai aur Javascr
 ## Day 18 - Subscription Schema
 
 * Understanding Subscription schema
+
+## day 19 - Learn MongoDb Aggregation Pipeline
+
+* Understanding MongoDb Aggregation pipeline
+* Creating MongoDb Aggregation pipeline for `User Subscription Model`.

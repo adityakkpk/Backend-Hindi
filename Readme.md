@@ -96,4 +96,10 @@ Started Learning Backend in Hindi from `Hitesh sir`'s playlist `Chai aur Javascr
 
 ## Day 16 - Access Token and refresh token in Backend
 
-- 
+* Create Endpoints in POSTMAT
+* Discussion abot Access Token and Refresh Token
+* Creating a new endpoint for the frontend engineer
+
+## Day 17 - Writing update controllers for user
+
+* Creating a new Subscription Model

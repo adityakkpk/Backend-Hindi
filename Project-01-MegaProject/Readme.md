@@ -524,3 +524,42 @@
     // Secured routes
     router.route("/logout").post(verifyJWT, logoutUser);
     ```
+
+### **Step 9 - Access Token and Refresh Token in Backend**
+
+* *Fixed Some Logical Error* 
+- Fixed the logical error in the `user.controller.js` file.
+
+* *Create Endpoints in POSTMAT*
+- Create a new endpoint for the user `Login`
+- Create a new endpoint for the user `Logout`
+
+* *Discussion abot Access Token and Refresh Token*
+- The `major` work of both token is to, user does not have to give the `email` and `password` again and again.
+- Access tokens are `short-lived` whereas refresh tokens are `long-lived`.
+- Refresh tokens are placed inside the database. Becuse as the access token expiries, the frontend developer hit the new endpoint with the refresh token and we generate new access tokens for the user so that, user does not have to signup again.
+
+* *Creating a new endpoint for the frontend engineer*
+
+### Step 10 - Writting update controllers for user
+
+* *Creating a new Subscription Model*
+- Create a new file `subscription.mode.js` inside the `models` directory and write the code for the subscription model: 
+```javascript
+import mongoose, {Schema } from 'mongoose';
+
+const subscriptionSchema = new Schema({
+    subscriber: {
+        type: Schema.Types.ObjectId, // one who is subscribing
+        ref: 'User',
+    }, 
+    channel: {
+        type: Schema.Types.ObjectId, // one to whom 'subscriber' is subscribing
+        ref: 'User',
+    }
+}, {timeseries: true});
+
+export const Subscription = mongoose.model('Subscription', subscriptionSchema);
+```
+
+* 

@@ -96,28 +96,28 @@ Started Learning Backend in Hindi from `Hitesh sir`'s playlist `Chai aur Javascr
 
 ## Day 16 - Access Token and refresh token in Backend
 
-* Create Endpoints in POSTMAT
-* Discussion abot Access Token and Refresh Token
+* Create `Endpoints` in `POSTMAT`
+* Discussion abot `Access Token` and `Refresh Token`
 * Creating a new endpoint for the frontend engineer
 
 ## Day 17 - Writing update controllers for user
 
-* Creating a new Subscription Model
-* Creating Controllers for updation in User data
+* Creating a new `Subscription Model`
+* Creating Controllers for `updation` in User data
 
 ## Day 18 - Subscription Schema
 
-* Understanding Subscription schema
+* Understanding `Subscription` schema
 
 ## day 19 - Learn MongoDb Aggregation Pipeline
 
-* Understanding MongoDb Aggregation pipeline
+* Understanding MongoDb `Aggregation pipeline`
 * Creating MongoDb Aggregation pipeline for `User Subscription Model`.
 
 ## Day 20 - How to write sub pipelines and routes
 
-* Creating a pipeline for watch-history.
-* Add some new routes for user controller.
+* Creating a `pipeline` for `watch-history`.
+* Add some new `routes` for `user controller`.
 
 ## Day 21 - Summary of the Backend Serise
 
@@ -127,5 +127,9 @@ Started Learning Backend in Hindi from `Hitesh sir`'s playlist `Chai aur Javascr
 
 # Day 22 - MongoDB models for like playlist and tweet
 
-* Testing All the Routes by using POSTMAN
+* Testing All the Routes by using `POSTMAN`
 * Creating some more models
+
+## Day 23 - Build in Public and open sourse
+
+* `Assignments` for the project

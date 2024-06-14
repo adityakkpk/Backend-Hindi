@@ -815,3 +815,8 @@
     - Create a new like model.
     - Create a new playlist model.
     - Create a new tweet model.
+
+### **Step 15 - Assignments for the project**
+
+- Write all the controllers which are required to complete this project.
+- The code with the assignments are in another folder.

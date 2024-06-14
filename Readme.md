@@ -133,3 +133,7 @@ Started Learning Backend in Hindi from `Hitesh sir`'s playlist `Chai aur Javascr
 ## Day 23 - Build in Public and open sourse
 
 * `Assignments` for the project
+
+## Day 24 - Backend Serise ends Here :)
+
+* *Final Summary* :)

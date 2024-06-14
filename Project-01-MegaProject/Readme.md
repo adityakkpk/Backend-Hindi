@@ -788,7 +788,7 @@
     });
     ```
 
-* **Add some new routes for user controller**
+### **Step 13 - Add some new routes for user controller**
 - ```javascript
     router.route("/change-password").post(verifyJWT, changeCurrentPassword);
     router.route("/current-user").get(verifyJWT, getCurrentUser);
@@ -804,3 +804,7 @@
     router.route("/c/:username").get(verifyJWT, getUserChannelProfile);
     router.route("/history").get(verifyJWT, getWatchHistory);
   ```
+
+### **Step 14 - MongoDB models for like playlist and tweet**
+* *Testing All the Routes by using POSTMAN*
+- 

@@ -124,3 +124,7 @@ Started Learning Backend in Hindi from `Hitesh sir`'s playlist `Chai aur Javascr
 * Overall Summary
 * Mega Project Summary
 * What Next?
+
+# Day 22 - MongoDB models for like playlist and tweet
+
+* 

@@ -127,4 +127,5 @@ Started Learning Backend in Hindi from `Hitesh sir`'s playlist `Chai aur Javascr
 
 # Day 22 - MongoDB models for like playlist and tweet
 
-* 
+* Testing All the Routes by using POSTMAN
+* Creating some more models

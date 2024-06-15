@@ -109,7 +109,7 @@ Started Learning Backend in Hindi from `Hitesh sir`'s playlist `Chai aur Javascr
 
 * Understanding `Subscription` schema
 
-## day 19 - Learn MongoDb Aggregation Pipeline
+## Day 19 - Learn MongoDb Aggregation Pipeline
 
 * Understanding MongoDb `Aggregation pipeline`
 * Creating MongoDb Aggregation pipeline for `User Subscription Model`.
@@ -125,7 +125,7 @@ Started Learning Backend in Hindi from `Hitesh sir`'s playlist `Chai aur Javascr
 * Mega Project Summary
 * What Next?
 
-# Day 22 - MongoDB models for like playlist and tweet
+## Day 22 - MongoDB models for like playlist and tweet
 
 * Testing All the Routes by using `POSTMAN`
 * Creating some more models
@@ -134,6 +134,6 @@ Started Learning Backend in Hindi from `Hitesh sir`'s playlist `Chai aur Javascr
 
 * `Assignments` for the project
 
-## Day 24 - Backend Serise ends Here :)
+## Day 24 - Backend Serise ends Here
 
-* *Final Summary* :)
+* *Final Summary*
